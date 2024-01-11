@@ -27,14 +27,14 @@ const Variables: FC<IVariablesProps> = ({
 
   const handleBtnVariablesClick = () => {
     setActiveButton('variables');
-    setshowVariables(true);
+    setshowVariables(!showVariables);
     setShowHeaders(false);
   };
 
   const handleBtnHeadersClick = () => {
     setActiveButton('headers');
     setshowVariables(false);
-    setShowHeaders(true);
+    setShowHeaders(!showHeaders);
   };
 
   const handleVariablesChange = (
@@ -58,7 +58,9 @@ const Variables: FC<IVariablesProps> = ({
           }`}
           onClick={handleBtnVariablesClick}
         >
-          {localizationStrings[lang].variables_btn}
+          {`${localizationStrings[lang].variables_btn} ${
+            showVariables ? '▲' : '▼'
+          }`}
         </div>
         <div
           className={`variables_btn variables_btn_query ${
@@ -66,7 +68,9 @@ const Variables: FC<IVariablesProps> = ({
           }`}
           onClick={handleBtnHeadersClick}
         >
-          {localizationStrings[lang].headers_btn}
+          {`${localizationStrings[lang].headers_btn} ${
+            showHeaders ? '▲' : '▼'
+          }`}
         </div>
       </div>
 
